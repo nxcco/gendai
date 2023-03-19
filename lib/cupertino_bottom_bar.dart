@@ -39,33 +39,38 @@ class CupertinoBottomBar extends StatelessWidget
       height: height,
       margin:
           EdgeInsets.only(bottom: MediaQuery.of(context).viewPadding.bottom),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          if (leading != null)
-            Padding(
-              padding: const EdgeInsetsDirectional.only(start: 8.0),
-              child: DefaultTextStyle(
-                style: CupertinoTheme.of(context).textTheme.navActionTextStyle,
-                child: leading!,
-              ),
-            ),
-          if (middle != null)
-            Expanded(
-              child: DefaultTextStyle(
-                style: CupertinoTheme.of(context).textTheme.navTitleTextStyle,
-                child: middle!,
-              ),
-            ),
-          if (trailing != null)
-            Padding(
-              padding: const EdgeInsetsDirectional.only(end: 8.0),
-              child: DefaultTextStyle(
-                style: CupertinoTheme.of(context).textTheme.navActionTextStyle,
-                child: trailing!,
-              ),
-            ),
+      child: Column(
+        children: [
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              if (leading != null)
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(start: 8.0),
+                  child: DefaultTextStyle(
+                    style:
+                        CupertinoTheme.of(context).textTheme.navActionTextStyle,
+                    child: leading!,
+                  ),
+                ),
+              if (middle != null)
+                DefaultTextStyle(
+                  style: CupertinoTheme.of(context).textTheme.navTitleTextStyle,
+                  child: middle!,
+                ),
+              if (trailing != null)
+                Padding(
+                  padding: const EdgeInsetsDirectional.only(end: 8.0),
+                  child: DefaultTextStyle(
+                    style:
+                        CupertinoTheme.of(context).textTheme.navActionTextStyle,
+                    child: trailing!,
+                  ),
+                ),
+            ],
+          ),
+          const Spacer(),
         ],
       ),
     );
